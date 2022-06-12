@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>9</LangVersion>
+		<RootNamespace>Pug.IdentityServer.Services</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Pug.IdentityServer.Stores.Common\Pug.IdentityServer.Stores.Common.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pug.IdentityServer.Stores", "src\Pug.IdentityServer.Stores\Pug.IdentityServer.Stores.csproj", "{49DA657D-DD46-423D-82C2-8C00E16C2BC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pug.IdentityServer.Stores.Common", "src\Pug.IdentityServer.Stores.Common\Pug.IdentityServer.Stores.Common.csproj", "{448A14CD-E9E3-47A8-9127-C345FBD59C1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pug.IdentityServer.Stores.PostgresData", "src\Pug.IdentityServer.Stores.PostgresData\Pug.IdentityServer.Stores.PostgresData.csproj", "{3994FF88-FF3A-496A-B8D4-11E9BA6D7AD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49DA657D-DD46-423D-82C2-8C00E16C2BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49DA657D-DD46-423D-82C2-8C00E16C2BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49DA657D-DD46-423D-82C2-8C00E16C2BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49DA657D-DD46-423D-82C2-8C00E16C2BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448A14CD-E9E3-47A8-9127-C345FBD59C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448A14CD-E9E3-47A8-9127-C345FBD59C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448A14CD-E9E3-47A8-9127-C345FBD59C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448A14CD-E9E3-47A8-9127-C345FBD59C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3994FF88-FF3A-496A-B8D4-11E9BA6D7AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3994FF88-FF3A-496A-B8D4-11E9BA6D7AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3994FF88-FF3A-496A-B8D4-11E9BA6D7AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3994FF88-FF3A-496A-B8D4-11E9BA6D7AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

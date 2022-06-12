@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Pug.IdentityServer.Services.Common</RootNamespace>
+	</PropertyGroup>
+	
+	<ItemGroup>
+	  <PackageReference Include="Pug.Application.Data" Version="1.1.12" />
+		<PackageReference Include="IdentityServer4.Storage" Version="4.0.0" />
+	</ItemGroup>
+
+</Project>
