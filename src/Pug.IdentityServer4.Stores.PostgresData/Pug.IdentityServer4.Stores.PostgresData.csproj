@@ -2,10 +2,12 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>9</LangVersion>
+		<RootNamespace>Pug.IdentityServer.Stores.PostgresData</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Pug.IdentityServer.Stores.Common\Pug.IdentityServer.Stores.Common.csproj" />
+	  <ProjectReference Include="..\Pug.IdentityServer4.Stores.Common\Pug.IdentityServer4.Stores.Common.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

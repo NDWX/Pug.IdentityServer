@@ -1,0 +1,77 @@
+name: master - build and NuGet publish
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  BuildConfiguration: release
+  IS4_Stores_Common_Project: src/Pug.IdentityServer4.Stores.Common/Pug.IdentityServer4.Stores.Common.csproj
+  IS4_Stores_Project: src/Pug.IdentityServer4.Stores/Pug.IdentityServer4.Stores.csproj
+  IS4_Stores_PostgresData_Project: src/Pug.IdentityServer4.Stores.PostgresData/Pug.IdentityServer4.Stores.PostgresData.csproj
+  PackagesBaseFolder: packages
+
+jobs:
+  build:
+    name: Build Projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      # Authenticates packages to push to GPR
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x' # SDK Version to use.
+          source-url: https://nuget.pkg.github.com/PugCS/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Build IS4 Stores Common project
+        run: dotnet build --nologo --configuration ${{env.BuildConfiguration}} ${{env.IS4_Stores_Common_Project}}
+
+      - name: Build IS4 Stores project
+        run: dotnet build --nologo --configuration ${{env.BuildConfiguration}} ${{env.IS4_Stores_Project}}
+
+      - name: Build IS4 Stores Postgres Data project
+        run: dotnet build --nologo --configuration ${{env.BuildConfiguration}} ${{env.IS4_Stores_PostgresData_Project}}
+
+
+      - name: Create packages base folder
+        run: mkdir packages
+        
+      - name: Pack Core project
+        run: dotnet pack --output ${{env.PackagesBaseFolder}} --nologo --configuration ${{env.BuildConfiguration}} ${{env.IS4_Stores_Common_Project}}
+
+      - name: Publish Core NuGet package
+        run: dotnet nuget push ${{env.PackagesBaseFolder}}/*.nupkg --skip-duplicate
+
+      - name: Publish Core NuGet package to NuGet.org
+        run: dotnet nuget push ${{env.PackagesBaseFolder}}/*.nupkg --api-key ${{secrets.NUGET_APIKEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Clear packages folder
+        run: rm packages/*.nupkg
+
+      - name: Pack Security project
+        run: dotnet pack --output ${{env.PackagesBaseFolder}} --nologo --configuration ${{env.BuildConfiguration}} ${{env.IS4_Stores_Project}}
+
+      - name: Publish Security NuGet package
+        run: dotnet nuget push ${{env.PackagesBaseFolder}}/*.nupkg --skip-duplicate
+
+      - name: Publish Security NuGet package to NuGet.org
+        run: dotnet nuget push ${{env.PackagesBaseFolder}}/*.nupkg --api-key ${{secrets.NUGET_APIKEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Clear packages folder
+        run: rm packages/*.nupkg
+
+      - name: Pack Application project
+        run: dotnet pack --output ${{env.PackagesBaseFolder}} --nologo --configuration ${{env.BuildConfiguration}} ${{env.IS4_Stores_PostgresData_Project}}
+
+      - name: Publish Application NuGet package
+        run: dotnet nuget push ${{env.PackagesBaseFolder}}/*.nupkg --skip-duplicate
+
+      - name: Publish Application NuGet package to NuGet.org
+        run: dotnet nuget push ${{env.PackagesBaseFolder}}/*.nupkg --api-key ${{secrets.NUGET_APIKEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Clear packages folder
+        run: rm packages/*.nupkg

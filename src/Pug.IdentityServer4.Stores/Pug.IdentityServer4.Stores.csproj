@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Pug.IdentityServer.Stores.Common\Pug.IdentityServer.Stores.Common.csproj" />
+	  <ProjectReference Include="..\Pug.IdentityServer4.Stores.Common\Pug.IdentityServer4.Stores.Common.csproj" />
 	</ItemGroup>
 
 </Project>
