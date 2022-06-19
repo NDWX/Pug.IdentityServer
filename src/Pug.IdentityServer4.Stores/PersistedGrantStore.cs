@@ -7,7 +7,7 @@ using IdentityServer4.Stores;
 using Pug.Application.Data;
 using Pug.IdentityServer.Services.Data;
 
-namespace Pug.IdentityServer.Services
+namespace Pug.IdentityServer.Stores
 {
 	public class PersistedGrantStore<TD> : IPersistedGrantStore
 		where TD : class, IGrantDataSession, IApplicationDataSession
